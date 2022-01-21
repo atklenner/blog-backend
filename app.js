@@ -4,6 +4,8 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 
+const indexRouter = require("./routes/index");
+
 mongoose.connect(process.env.DATABASE_URL, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
@@ -14,7 +16,7 @@ db.once("open", () => console.log("Connected to Database"));
 
 // middleware
 
-// routers
+app.use("/", indexRouter);
 
 const port = process.env.PORT || 3000;
 app.listen(port);
