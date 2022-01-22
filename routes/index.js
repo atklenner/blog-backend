@@ -21,10 +21,10 @@ router.get("/blog/:id/comments", indexController.getBlogPostComments);
 
 router.post("/blog/:id/comments", indexController.postNewBlogPostComment);
 
-router.get("/blog/:id/comments/:id", indexController.getComment);
+router.get("/blog/:id/comments/:id2", indexController.getComment);
 
-router.patch("/blog/:id/comments/:id", indexController.updateComment);
+router.patch("/blog/:id/comments/:id2", indexController.updateComment);
 
-router.delete("/blog/:id/comments/:id", indexController.deleteComment);
+router.delete("/blog/:id/comments/:id2", indexController.deleteComment);
 
 module.exports = router;

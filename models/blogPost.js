@@ -6,7 +6,7 @@ const blogPostSchema = new Schema({
   author: String,
   date: { type: Date, default: Date.now() },
   body: String,
-  published: Boolean,
+  published: { type: Boolean, default: false },
   tags: [{ type: String }],
 });
 
@@ -14,4 +14,4 @@ blogPostSchema.virtual("url").get(() => {
   return "/blog/" + this._id;
 });
 
-module.exports = mongoose.model("Blog Post", blogPostSchema);
+module.exports = mongoose.model("BlogPost", blogPostSchema);

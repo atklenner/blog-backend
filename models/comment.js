@@ -5,7 +5,7 @@ const commentSchema = new Schema({
   author: String,
   body: String,
   date: { type: Date, default: Date.now() },
-  blogPost: { type: Schema.Types.ObjectId, required },
+  blogPost: { type: Schema.Types.ObjectId, required: true },
 });
 
 commentSchema.virtual("url").get(() => {
