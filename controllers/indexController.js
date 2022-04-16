@@ -89,7 +89,7 @@ exports.getBlogPostComments = [
   getBlog,
   (req, res, next) => {
     Comment.find({ blogPost: req.params.id })
-      .sort({ date: -1 })
+      .sort({ date: 1 })
       .exec((err, comments) => {
         if (err) {
           return next(err);
