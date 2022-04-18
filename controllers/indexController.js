@@ -23,15 +23,12 @@ exports.getBlogPost = [
 
 // didn't finish this one, have to add tags
 exports.postNewBlog = [
-  body("title", "Title must not be empty.")
-    .trim()
-    .isLength({ min: 1 })
-    .escape(),
-  body("author", "Author must not be empty.")
-    .trim()
-    .isLength({ min: 1 })
-    .escape(),
-  body("body", "Body must not be empty.").trim().isLength({ min: 1 }).escape(),
+  body("title", "Title must not be empty.").trim().isLength({ min: 1 }),
+  // .escape(),
+  body("author", "Author must not be empty.").trim().isLength({ min: 1 }),
+  // .escape(),
+  // body("body", "Body must not be empty.").trim().isLength({ min: 1 }).escape(),
+  body("body", "Body must not be empty.").trim().isLength({ min: 1 }),
   async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -51,6 +48,7 @@ exports.postNewBlog = [
   },
 ];
 
+// doesn't do any validation, not sure if it needs it
 exports.updateBlogPost = [
   getBlog,
   async (req, res, next) => {
