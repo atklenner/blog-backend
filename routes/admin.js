@@ -18,6 +18,10 @@ router.post("/signup", adminController.signup);
 
 router.get("/index", adminController.getPosts);
 
+router.get("/new", (req, res) => {
+  res.render("post");
+});
+
 router.get("/:id", adminController.getPost);
 
 module.exports = router;

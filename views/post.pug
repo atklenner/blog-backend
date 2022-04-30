@@ -1,10 +1,30 @@
 extends layout
 
+block scripts
+  if post
+    script(src="../js/updatePost.js" defer) 
+  else
+    script(src="../js/newPost.js" defer) 
+
 block content
   if post
-    h1= post.title
-    p= post.author
-    p= post.date
-    p= post.body 
+    h1(class="pure-u-1") Edit the post
+    form(class="pure-form pure-form-stacked pure-u-1")
+      label(for="title") Title
+        input#title(type="text", name="title", value=post.title)
+      label(for="author") Author
+        input#author(type="text", name="author", value=post.author)
+      label(for="body") Body
+        textarea#body(name="body", cols="100", rows="50")= post.body
+      button(type="submit", class="pure-button pure-button-primary") Make Changes
+    a(href="/", class="pure-button") Delete this post 
   else
-    h1 No Post
+    h1(class="pure-u-1") Make a new post
+    form(class="pure-form pure-form-stacked pure-u-1")
+      label(for="title") Title
+        input#title(type="text", name="title")
+      label(for="author") Author
+        input#author(type="text", name="author")
+      label(for="body") Body
+        textarea#body(name="body", cols="100", rows="50")
+      button(type="submit", class="pure-button pure-button-primary") Submit Post
