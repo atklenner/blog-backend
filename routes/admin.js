@@ -10,11 +10,11 @@ router.get("/", (req, res) => {
 
 router.post("/", adminController.signin);
 
-router.get("/signup", (req, res) => {
-  res.render("singup");
-});
+// router.get("/signup", (req, res) => {
+//   res.render("singup");
+// });
 
-router.post("/signup", adminController.signup);
+// router.post("/signup", adminController.signup);
 
 router.get("/index", adminController.getPosts);
 
@@ -23,5 +23,7 @@ router.get("/new", (req, res) => {
 });
 
 router.get("/:id", adminController.getPost);
+
+router.get("/:id/delete", adminController.getPost);
 
 module.exports = router;
