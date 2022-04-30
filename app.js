@@ -10,6 +10,7 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 
 const indexRouter = require("./routes/index");
+const adminRouter = require("./routes/admin");
 
 const mongoURL = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`;
 mongoose.connect(mongoURL, {
@@ -22,11 +23,11 @@ db.once("open", () => console.log("Connected to Database"));
 
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(express.static("public"));
+app.set("view engine", "pug");
 
 app.use("/api/v1/", indexRouter);
-app.use("/", (req, res) => {
-  res.send("<h1>Docker is weird man<h1>");
-});
+app.use("/admin", adminRouter);
 
 const port = process.env.PORT || 3000;
 app.listen(port);
