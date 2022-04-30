@@ -1,0 +1,9 @@
+extends layout 
+
+block content
+  h1 The Posts 
+  ul
+    each post in posts
+      li
+        h2
+          a(href=post._id)= post.title

@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  if post
+    h1= post.title
+    p= post.author
+    p= post.date
+    p= post.body 
+  else
+    h1 No Post
