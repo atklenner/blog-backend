@@ -10,13 +10,13 @@ router.get("/", (req, res, next) => {
 
 router.get("/blog", indexController.getAllBlogs);
 
-router.post("/blog", indexController.postNewBlog);
+router.post("/blog", auth, indexController.postNewBlog);
 
 router.get("/blog/:id", indexController.getBlogPost);
 
-router.patch("/blog/:id", indexController.updateBlogPost);
+router.patch("/blog/:id", auth, indexController.updateBlogPost);
 
-router.delete("/blog/:id", indexController.deleteBlogPost);
+router.delete("/blog/:id", auth, indexController.deleteBlogPost);
 
 router.get("/blog/:id/comments", indexController.getBlogPostComments);
 
@@ -24,8 +24,8 @@ router.post("/blog/:id/comments", indexController.postNewBlogPostComment);
 
 router.get("/blog/:id/comments/:id2", indexController.getComment);
 
-router.patch("/blog/:id/comments/:id2", indexController.updateComment);
+router.patch("/blog/:id/comments/:id2", auth, indexController.updateComment);
 
-router.delete("/blog/:id/comments/:id2", indexController.deleteComment);
+router.delete("/blog/:id/comments/:id2", auth, indexController.deleteComment);
 
 module.exports = router;
