@@ -1,9 +1,10 @@
 extends layout 
 
 block content
-  h1 The Posts 
-  ul
+  h1(class="pure-u-1") The Posts 
+  ul(class="pure-u-1")
     each post in posts
       li
         h2
           a(href=post._id)= post.title
+  a(href="/admin/new", class="pure-u-1 pure-button") New Blog Post
