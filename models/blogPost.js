@@ -10,8 +10,4 @@ const blogPostSchema = new Schema({
   tags: [{ type: String }],
 });
 
-blogPostSchema.virtual("url").get(() => {
-  return "/blog/" + this._id;
-});
-
 module.exports = mongoose.model("BlogPost", blogPostSchema);

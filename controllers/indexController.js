@@ -1,7 +1,6 @@
 const BlogPost = require("../models/blogPost");
 const Comment = require("../models/comment");
 const { body, validationResult } = require("express-validator");
-const { get } = require("mongoose");
 
 exports.getAllBlogs = (req, res, next) => {
   BlogPost.find()
@@ -24,11 +23,8 @@ exports.getBlogPost = [
 // didn't finish this one, have to add tags
 exports.postNewBlog = [
   body("title", "Title must not be empty.").trim().isLength({ min: 1 }),
-  // .escape(),
   body("author", "Author must not be empty.").trim().isLength({ min: 1 }),
-  // .escape(),
-  // body("body", "Body must not be empty.").trim().isLength({ min: 1 }).escape(),
-  body("body", "Body must not be empty.").trim().isLength({ min: 1 }),
+  body("body", "Body must not be empty.").isLength({ min: 1 }),
   async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

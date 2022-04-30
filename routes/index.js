@@ -2,9 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 const indexController = require("../controllers/indexController");
+const auth = require("../middleware/auth");
 
 router.get("/", (req, res, next) => {
-  res.redirect("/blog");
+  res.redirect("/api/v1/blog");
 });
 
 router.get("/blog", indexController.getAllBlogs);
