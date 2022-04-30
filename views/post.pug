@@ -2,7 +2,7 @@ extends layout
 
 block scripts
   if post
-    script(src="../js/updatePost.js" defer) 
+    script(src="../js/updatePost.js", defer) 
   else
     script(src="../js/newPost.js" defer) 
 
@@ -17,7 +17,7 @@ block content
       label(for="body") Body
         textarea#body(name="body", cols="100", rows="50")= post.body
       button(type="submit", class="pure-button pure-button-primary") Make Changes
-    a(href="/", class="pure-button pure-u") Delete this post 
+    a(href="/admin/" + post._id + "/delete", class="pure-button pure-u") Delete this post 
   else
     h1(class="pure-u-1") Make a new post
     form(class="pure-form pure-form-stacked pure-u-1")

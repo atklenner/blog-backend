@@ -1,0 +1,9 @@
+extends layout
+
+block scripts
+  script(src="./js/deletePost.js", defer) 
+
+block content
+  h1(class="pure-u-1") Are you sure you want to delete that article?
+  form(class="pure-form pure-form-stacked pure-u-1")
+    button(type="submit", class="pure-button pure-button-primary") Yes I Am Sure

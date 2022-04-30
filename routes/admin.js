@@ -22,8 +22,10 @@ router.get("/new", (req, res) => {
   res.render("post");
 });
 
-router.get("/:id", adminController.getPost);
+router.get("/:id/delete", (req, res) => {
+  res.render("delete");
+});
 
-router.get("/:id/delete", adminController.getPost);
+router.get("/:id", adminController.getPost);
 
 module.exports = router;
