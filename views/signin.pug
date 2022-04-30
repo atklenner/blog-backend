@@ -1,0 +1,13 @@
+extends layout.pug
+
+block scripts
+  script(src="../js/signin.js" defer) 
+
+block content
+  h1 Admin Login
+  form#form(action="admin", method="post") 
+    label(for="email") 
+      input#email(type="email", name="email", placeholder="email")
+    label(for="password") 
+      input#password(type="password", name="password", placeholder="password")
+    button(type="submit") Submit
